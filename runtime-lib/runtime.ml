@@ -526,7 +526,7 @@ let summarize () =
       Printf.eprintf "inline_tests_runner.exe is not supposed to be run by hand, you \n\
                       should run the inline_tests_runner script instead.\n%!"
     else
-      Printf.eprintf "You are doing something unexpected with the tests. No tests have \n\
+      Printf.eprintf "You are doing something unexpected with the tests.sdfdsddf No tests have \n\
                       been run. You should use the inline_tests_runner script to run \n\
                       tests.\n%!";
     Test_result.Error
