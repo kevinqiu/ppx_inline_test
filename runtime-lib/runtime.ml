@@ -219,12 +219,12 @@ let backtrace_indented ~by =
   indent str ~by
 
 let () =
-  Printf.printf "hello";
-  Printf.printf "%B" Base.Exported_for_specific_uses.am_testing;
+  Printf.printf "am_testing: %B \n" Base.Exported_for_specific_uses.am_testing;
   match Array.to_list Sys.argv with
   | name :: "inline-test-runner" :: lib :: rest
     when Base.Exported_for_specific_uses.am_testing -> begin
       (* when we see this argument, we switch to test mode *)
+      Printf.printf "Test Mode \n";
       let tests = ref [] in
       let list_partitions = ref false in
       let partition = ref None in
@@ -299,6 +299,7 @@ let () =
           })
     end
   | _ ->
+    Printf.printf "Did not match inline-tests-runner \n";
     ()
 
 let testing =
@@ -526,7 +527,7 @@ let summarize () =
       Printf.eprintf "inline_tests_runner.exe is not supposed to be run by hand, you \n\
                       should run the inline_tests_runner script instead.\n%!"
     else
-      Printf.eprintf "You are doing something unexpected with the tests.sdfdsddf No tests have \n\
+      Printf.eprintf "You are doing something unexpected with the tests. No tests have \n\
                       been run. You should use the inline_tests_runner script to run \n\
                       tests.\n%!";
     Test_result.Error
