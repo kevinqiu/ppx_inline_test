@@ -219,6 +219,8 @@ let backtrace_indented ~by =
   indent str ~by
 
 let () =
+  Printf.printf "hello";
+  Printf.printf "%B" Base.Exported_for_specific_uses.am_testing;
   match Array.to_list Sys.argv with
   | name :: "inline-test-runner" :: lib :: rest
     when Base.Exported_for_specific_uses.am_testing -> begin
